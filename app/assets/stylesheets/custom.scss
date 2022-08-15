@@ -133,7 +133,7 @@ body {
   margin: 50px, 50px,;
 }
 
-/* new */
+/* new *//* login */
 .user-new {
   padding: 50px 0 100px;
   text-align: center;
@@ -147,11 +147,42 @@ body {
   //background-repeat: no-repeat;
   //background-position: left;
   background-size: cover;
-  background-image: url("/katarinagondova150700087.jpg");
+  background-image: url("/katarinagondova150700088_edited.jpg");
+}
+/* show */
+.show-main {
+  padding: 50px 0 100px;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  color: blue;
+  //background-color: #3ecd85;
+  //background-repeat: no-repeat;
+  //background-position: left;
+  background-size: cover;
+  background-image: url("/juliasudnitskaya200300034.jpg");
+}
+.show-main p {
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+
 /* ユーザー情報テーブル */
 
 .user-table {
   vertical-align: middle;
+  text-align: center;
+  margin-top: 50px;
+}
+.user-table p {
+  font-size: 30px;
+  margin-top: 50px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -163,7 +194,6 @@ body {
   margin-top: 20px;
 }
 
-}
 /* debug */
 
 .debug_dump {

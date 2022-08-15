@@ -1,32 +1,34 @@
 <% provide(:title, @user.name) %>
-<p><%= @user.name %>様のデータ</p>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <table class="table table-bordered table-condensed user-table">
-      <tr>
-        <td>会員番号</td>
-        <td>00<%= @user.id %></td>
-      </tr>
-      <tr>
-        <td>お客様氏名</td>
-        <td><%= @user.name %></td>
-      </tr>
-      <tr>
-        <td>メールアドレス</td>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <td>次回ご予ご予約</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>ご予約履歴</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>カルテ</td>
-        <td></td>
-      </tr>
-    </table>
+<div class="show-main">
+  <p><%= @user.name %>様 データ</p>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <table class="table table-bordered table-condensed user-table">
+        <tr>
+          <td>会員番号</td>
+          <td>00<%= @user.id %></td>
+        </tr>
+        <tr>
+          <td>お客様氏名</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <td>次回ご予約</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>ご予約履歴</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>施術メモ</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
