@@ -1,34 +1,69 @@
 <% provide(:title, @user.name) %>
-<div class="show-main">
-  <p><%= @user.name %>様</p>
+<div class="show-main">  
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <table class="table table-bordered table-condensed user-table">
-        <tr>
-          <td>会員番号</td>
-          <td>000<%= @user.id %></td>
-        </tr>
-        <tr>
-          <td>お客様氏名</td>
-          <td><%= @user.name %></td>
-        </tr>
-        <tr>
-          <td>メールアドレス</td>
-          <td><%= @user.email %></td>
-        </tr>
-        <tr>
-          <td>ご予約状況</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>ご予約履歴</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>施術メモ</td>
-          <td></td>
-        </tr>
-      </table>
+      <h1><%= @user.name %>様マイページ</h1>
+    </div>
+    <div class="col-md-6 col-md-offset-3">      
+      <div>        
+        <p style="display:inline;"><%= @user.email %></p>
+      </div>
+      <div class="col-12 mt-3 text-center mx-auto">
+        <h3>ご予約一覧</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ご予約日</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user_reservations.each do |user_reservation| %>
+              <td>
+                <%= user_reservation.day %>
+                <%= user_reservation.time %>              
+              </td>
+              <td>
+                <%= link_to '削除', reservation_path(user_reservation.id), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+              </td>
+            </tr>             
+            <% end %>
+            <% if @user_reservations.blank? %>
+              <tr>
+                <td>ご予約はございません。</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 mt-3 text-center mx-auto">
+        <h3>ご来店履歴</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ご来店日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @visit_historys.each do |visit_history| %>
+              <tr>
+                <td>
+                  <%= visit_history.day %>
+                  <%= visit_history.time %>              
+                </td>
+              </tr>
+            <% end %>
+            <% if @visit_historys.blank? %>
+              <tr>
+                <td>ご来店履歴はございません。</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="center">
+        <%= link_to "ご予約", reservations_path, class: "btn btn-lg btn-info" %>
+      </div>
+      </div>
     </div>
   </div>
 </div>
