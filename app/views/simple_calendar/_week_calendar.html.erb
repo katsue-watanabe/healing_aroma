@@ -38,7 +38,7 @@
             <% week.each do |day| %>
               <td>
                 <% if check_reservation(reservations, day, time) %>
-                  <%= '×' %>
+                  <%= '予約済み' %>
                 <% else %>
                   <%= link_to new_reservation_path(day: day, time: time) do %>
                     <%= '○' %>

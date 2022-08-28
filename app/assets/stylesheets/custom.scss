@@ -3,7 +3,6 @@
 
 * {
   box-sizing: border-box;
-  margintop: 50px;
 }
 
 html {
@@ -14,8 +13,16 @@ html {
 
 ul, li {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
+  padding: 50;
+  margin: 50;
+  font-size: 1.7em;
+}
+
+dt {
+  list-style-type: none;
+  padding: 50;
+  margin: 50;
+  font-size: 1.2em;
 }
 
 a {
@@ -59,7 +66,7 @@ body {
 
 // .container {
 //   max-width: 600px;
-//   margin: 60px auto;
+//   margin: 30px auto;
 //   padding-left: 0px;
 //   padding-right: 0px;
 //   clear: both;
@@ -69,22 +76,32 @@ body {
 
 #logo {
   float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
+  margin-left: 30px;
+  font-size: 2.0em;
   color: #fff;
-  letter-spacing: -1px;
-  padding-top: 9px;
+  letter-spacing: 0px;
+  padding-top: 12px;
   font-weight: bold;
 }
 
-#logo:hover {
+nav {
+  margin-right: 30px;
+  font-size: 3.0em;
   color: #fff;
-  text-decoration: none;
+  letter-spacing: 0px;
+  padding-top: 5px;
+  // font-weight: bold;
 }
+
+// #logo:hover {
+//   color: #fff;
+//   text-decoration: none;
+// }
 
 
 /* top */
 .top-main {
+  margin: 5px;
   padding: 200px 0 100px;
   text-align: left;
   //position: absolute;
@@ -112,14 +129,14 @@ body {
   -webkit-font-smoothing: antialiased;
   color: yellow;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   margin-left: 50px;
 }
 
 .top-main h1 {
   font-size: 70px;
   //letter-spacing: -2px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 50px;
   margin-left: 50px;
   text-align: left;
@@ -134,6 +151,7 @@ body {
 }
 
 .button {
+  margin-top: 100px;
   margin-left: 50px;
 }
 
@@ -184,9 +202,6 @@ body {
   height: auto;
   min-height: 100%;
   color: blue;
-  //background-color: #3ecd85;
-  //background-repeat: no-repeat;
-  //background-position: left;
   background-size: cover;
   background-image: url("/juliasudnitskaya200300034.jpg");
 }
@@ -212,6 +227,72 @@ body {
   background-position: left;
   background-size: cover;
   background-image: url("/kentoh110400244.jpg");
+}
+
+.menu-main {
+  padding: 50px 0 100px;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  color: #000;
+  //background-color: #3ecd85;
+  background-size: cover;
+  background-image: url("/violin090500072.jpg");
+}
+.menu-main h1 {
+  font-size: 30px;
+  letter-spacing: -2px;
+  border: 10px 20px 0px 20px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  margin-left: 500px;
+  // text-align: left;
+  color: #ff6c94;
+}
+
+.menu-main dt {
+  font-size: 15px;
+  //letter-spacing: -2px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 300px;
+  text-align: left;
+  color: #f9e900;
+}
+
+.menu-main dd {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 350px;
+  text-align: left;
+}
+.menu-main h2 {
+  float: center;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  // margin-left: 500px;
+  text-align: center;
+  color: #ff6c94;
+}
+.menu-main ul {
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  margin-left: 250px;
+  text-align: left;
+}
+.menu-main p {
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: blue;
 }
 
 

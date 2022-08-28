@@ -1,5 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :user
+  has_one :massage
 
   validates :day, presence: true
   validates :time, presence: true

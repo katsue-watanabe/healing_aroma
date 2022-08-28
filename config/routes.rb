@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :reservations
+  
   root 'static_pages#top'
   get '/signup', to: 'users#new'
   
@@ -8,9 +8,14 @@ Rails.application.routes.draw do
   post   '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   
-  resources :users
-
+  resources :users do
+    member do
+      # 当日予約客 
+      get 'todays_reservations' 
+    end
+  end
   resources :reservations
+  resources :massages
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
