@@ -13,8 +13,25 @@
           <%= form.text_field :day, class: 'form-control', value: @day, readonly: true %>
         </div>
         <div class="time form-group">
-          <%= form.label :time, '時間' %>
+          <%= form.label :time, '予約時間' %>
           <%= form.text_field :time, class: 'form-control', value: @time, readonly: true %>
+        </div>
+        <div class="time form-group">
+          <p>ご希望のコースを選択してください。</p>
+          <%= form.radio_button :menu, "リフレクソロジー/30分" %>
+          <%= form.label :menu, "リフレクソロジー/30分", {value: "リフレクソロジー/30分", style: "display: inline-block;"} %><br>
+          <%= form.radio_button :menu, "リフレクソロジー/60" %>
+          <%= form.label :menu, "リフレクソロジー/60", {value: "リフレクソロジー/60", style: "display: inline-block;"} %><br>
+          <%= form.radio_button :menu, "ボディコース/60分" %>
+          <%= form.label :menu, "ボディコース/60分", {value: "ボディコース/60分", style: "display: inline-block;"} %><br>
+          <%= form.radio_button :menu, "ボディコース/90分" %>
+          <%= form.label :menu, "ボディコース/90分", {value: "ボディコース/90分", style: "display: inline-block;"} %><br>
+          <%= form.radio_button :menu, "リンパアロマコース/60分" %>
+          <%= form.label :menu, "リンパアロマコース/60分", {value: "リンパアロマコース/60分", style: "display: inline-block;"} %><br>
+          <%= form.radio_button :menu, "リンパアロマコース/90分" %>
+          <%= form.label :menu, "リンパアロマコース/90分", {value: "リンパアロマコース/90分", style: "display: inline-block;"} %><br>
+          <%= form.radio_button :menu, "カウンセリングコース/120分" %>
+          <%= form.label :menu, "カウンセリングコース/120", {value: "カウンセリングコース/120", style: "display: inline-block;"} %>
         </div>
         <%= form.hidden_field :user_id, value: current_user.id %>
         <%= form.hidden_field :start_time, value: @start_time %>

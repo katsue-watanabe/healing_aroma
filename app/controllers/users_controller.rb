@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :todays_reservations]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :todays_reservations]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: [:destroy, :index, :todays_reservations] 
   
   def index
     @users = User.paginate(page: params[:page], per_page: 10).order("id ASC")
   end
   
   def show
-    # @user = User.find(current_user.id)
     @user_reservations = @user.reservations.where("day >= ?", Date.current).order(day: :desc)
     @visit_historys = @user.reservations.where("day < ?", Date.current).where("day > ?", Date.today << 12).order(day: :desc)
   end
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user # 保存成功後、ログインします。
-      flash[:success] = '新規ご登録、誠に有難う存じ上げます。'
+      flash[:success] = '新規のご登録ありがとうございます。'
       redirect_to @user
     else
       render :new
@@ -45,6 +44,10 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:success] = "#{@user.name}のデータを削除しました。"
     redirect_to users_url
+  end
+  
+  def todays_reservations
+    @users = User.all.includes(:reservations)
   end
   
   
