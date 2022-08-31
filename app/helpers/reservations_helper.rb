@@ -1,6 +1,6 @@
 module ReservationsHelper
   def times
-    times = ["10:00",
+  　times = ["10:00",
              "10:30",
              "11:00",
              "11:30",

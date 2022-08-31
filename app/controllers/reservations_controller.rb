@@ -25,8 +25,10 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
+      flash[:success] = 'ご予約が完了しました。'
       redirect_to reservation_path @reservation.id
     else
+      flash[:danger] = 'メニューを選択してください。'
       render :new
     end
   end

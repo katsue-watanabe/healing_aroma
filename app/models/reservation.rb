@@ -4,6 +4,7 @@ class Reservation < ApplicationRecord
 
   validates :day, presence: true
   validates :time, presence: true
+  validates :menu, presence: true
   validates :start_time, presence: true, uniqueness: true
 
   validate :date_before_start
