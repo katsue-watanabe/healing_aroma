@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'maps/index'  
   resources :maps, only: [:index]
+  get '/map_request', to: 'maps#map', as: 'map_request'
   
   # ログイン機能
   get    '/login', to: 'sessions#new'

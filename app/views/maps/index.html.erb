@@ -1,52 +1,33 @@
-<h2>gmap</h2>
+<div class="maps-main">
+  <h2>Healing Aroma</h2>
+  <!-- form_withはデフォルトでremote: trueの挙動になります -->
+  <%= form_with url: map_request_path, method: :get do |f|%>
+    <%= f.text_field :address %>
+    <%= f.submit '地図表示' %>
+  <% end %>
 
-<input id="address" type="textbox" value="GeekSalon">
-<input type="button" value="Encode" onclick="codeAddress()">
+  <div id="map">
+  </div>
 
-<div id="display">何かが表示される、、、、！</div>
-
-<div id='map'></div>
-
-<style>
-#map {
-  height: 600px;
-  width: 600px;
-}
-</style>
+  <style>
+  #map{
+    height: 400px;
+  }
+  </style>
+  <p>お問合せ</p>
+  <p>〒959-2072</p>
+  <p>新潟市西区上新栄町○○○○</p>
+  <p>Phone:○○○-○○○‐○○○○</p>
+</div>
 
 <script>
-let map
+  let mapInstance //この変数はmap.js.erbでも使うのでタイプミスに注意
 
-function initMap(){
-  geocoder = new google.maps.Geocoder()
-
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 40.7828, lng:-73.9653},
-    zoom: 12,
-  });
-
-  marker = new google.maps.Marker({
-    position:  {lat: 40.7828, lng:-73.9653},
-    map: map
-  });
-
-  let geocoder
-
-function codeAddress(){
-  let inputAddress = document.getElementById('address').value;
-
-  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-    if (status == 'OK') {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-    } else {
-      alert('該当する結果がありませんでした：' + status);
-    }
-  });   
-}
-}
+  function initMap(){
+    mapInstance = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 37.900, lng: 138.990},
+    zoom: 15
+    });
+  }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMi15weT91nKVNN3WA8GG9f4sPcLnpIms&callback=initMap" async defer></script>
