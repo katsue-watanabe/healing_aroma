@@ -66,9 +66,11 @@
               </tr>
             <% end %>
           </tbody>
-        </table>
+        </table>          
         <div class="center">
-        <%= link_to "ご予約", reservations_path, class: "btn btn-lg btn-info" %>
+          <% if current_user?(@user) %>
+            <%= link_to "ご予約", reservations_path, class: "btn btn-lg btn-info" %>
+          <% end %>
       </div>
       </div>
     </div>

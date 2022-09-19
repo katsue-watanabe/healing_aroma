@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :todays_reservations]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: [:destroy, :index, :todays_reservations] 
+  before_action :admin_or_correct_user, only: :show
   
   def index
     @users = User.paginate(page: params[:page], per_page: 10).order("id ASC")
@@ -79,5 +80,13 @@ class UsersController < ApplicationController
     # システム管理権限所有かどうか判定します。
     def admin_user
       redirect_to root_url unless current_user.admin?
+    end
+
+    def admin_or_correct_user
+      @user = User.find(params[:user_id]) if @user.blank?
+      unless current_user?(@user) || current_user.admin?
+        flash[:danger] = "閲覧権限がありません。"
+        redirect_to(root_url)
+      end  
     end
 end
