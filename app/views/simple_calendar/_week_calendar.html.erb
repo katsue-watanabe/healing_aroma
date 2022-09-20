@@ -35,16 +35,20 @@
         <% times.each do |time| %>
           <tr>
             <td><%= time %></td>
-            <% week.each do |day| %>
+            <% week.each do |day| %>               
               <td>
-                <% if check_reservation(reservations, day, time) %>
+                <% if check_reservation(reservations, day, time) %>                
                   <%= '予約済み' %>
                 <% else %>
-                  <%= link_to new_reservation_path(day: day, time: time) do %>
-                    <%= '○' %>
+                  <% if Date.current >= day %>                    
+                    <%= '×' %>                    
+                  <% else %>
+                    <%= link_to new_reservation_path(day: day, time: time) do %>
+                      <%= '○' %>
+                    <% end %>
                   <% end %>
                 <% end %>
-              </td>
+              </td>                
             <% end %>
           </tr>
         <% end %>        
